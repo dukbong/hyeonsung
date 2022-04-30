@@ -5,3 +5,4 @@ function show(){
 function hide(){
     document.getElementById("java300").src = "";
 }
+
