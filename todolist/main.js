@@ -48,13 +48,14 @@ button.addEventListener("click", function (e) {
   todos.appendChild(li);
   todoInput.value = "";
 
-  /*▽▽▽▽▽▽▽▽▽▽삭제기능▽▽▽▽▽▽▽▽▽▽▽▽▽*/
+  /*▽▽▽▽▽▽▽▽삭제기능▽▽▽▽▽▽▽▽*/
   for (let z = 0; z < del.length; z++) {
     const hoho = del[z];
     hoho.addEventListener("click", function (j) {
       hoho.remove();
     });
   }
+  /*△△△△△△△△삭제기능△△△△△△△△*/
 });
 
 
