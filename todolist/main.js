@@ -58,4 +58,6 @@ button.addEventListener("click", function (e) {
   /*△△△△△△△△삭제기능△△△△△△△△*/
 });
 
+//정말 기본적인 기능만있는 상태입니다.
+
 
