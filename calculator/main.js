@@ -13,7 +13,7 @@ const $result = document.querySelector("#result");
 //     numOne +=number;
 //   }
 //   $result+=number;
-// } //고차함수 (high order function >> 함수가 함수를 리턴한다.) >> 함수의 중복을 제거할 때 사용한다.
+// } //고차함수 (high order function >> 함수가 함수를 반환한다.) >> 함수의 중복을 제거할 때 사용한다.
 //여기서 사용할 수 있는 더 쉬운 방법
 const onClickNumber = (event) => {
   if (operator) {
@@ -39,6 +39,24 @@ document.querySelector("#num-8").addEventListener("click", onClickNumber);
 document.querySelector("#num-9").addEventListener("click", onClickNumber);
 
 const onClickOperator = (op) => () => {
+  if (numTwo) {
+    switch (operator) {
+      case "+":
+        $result.value = parseInt(numOne) + parseInt(numTwo);
+        break;
+      case "-":
+        $result.value = parseInt(numOne) - parseInt(numTwo);
+        break;
+      case "/":
+        $result.value = parseInt(numOne) / parseInt(numTwo);
+        break;
+      case "*":
+        $result.value = parseInt(numOne) * parseInt(numTwo);
+        break;
+    }
+    numOne = $result.value;
+    numTwo = "";
+  }
   if (numOne) {
     operator = op;
     $operator.value = op;
@@ -48,9 +66,15 @@ const onClickOperator = (op) => () => {
 }; //고차 함수 사용하기
 
 document.querySelector("#plus").addEventListener("click", onClickOperator("+"));
-document.querySelector("#minus").addEventListener("click", onClickOperator("-"));
-document.querySelector("#divide").addEventListener("click", onClickOperator("/"));
-document.querySelector("#multiply").addEventListener("click", onClickOperator("*"));
+document
+  .querySelector("#minus")
+  .addEventListener("click", onClickOperator("-"));
+document
+  .querySelector("#divide")
+  .addEventListener("click", onClickOperator("/"));
+document
+  .querySelector("#multiply")
+  .addEventListener("click", onClickOperator("*"));
 document.querySelector("#calculate").addEventListener("click", () => {
   if (numTwo) {
     switch (operator) {
@@ -67,6 +91,10 @@ document.querySelector("#calculate").addEventListener("click", () => {
         $result.value = parseInt(numOne) * parseInt(numTwo);
         break;
     }
+    $operator.value = "";
+    numOne = $result.value;
+    operator = "";
+    numTwo = "";
   } else {
     alert("숫자를 먼저 입력해주세요.");
   }
