@@ -31,7 +31,7 @@ const msg = document.querySelector("#msg");
 let del = document.getElementsByClassName("item");
 
 button.addEventListener("click", function (e) {
-   //변수.addEventListener(어떤 이벤트, 어떤 기능)
+  //변수.addEventListener(어떤 이벤트, 어떤 기능)
   e.preventDefault();
   if (todoInput.value === "") {
     msg.style.display = "block";
@@ -47,17 +47,8 @@ button.addEventListener("click", function (e) {
   li.classList.add("item");
   todos.appendChild(li);
   todoInput.value = "";
-
-  /*▽▽▽▽▽▽▽▽삭제기능▽▽▽▽▽▽▽▽*/
-  for (let z = 0; z < del.length; z++) {
-    const hoho = del[z];
-    hoho.addEventListener("click", function (j) {
-      hoho.remove();
-    });
-  }
-  /*△△△△△△△△삭제기능△△△△△△△△*/
 });
 
-//정말 기본적인 기능만있는 상태입니다.
-
-
+todos.addEventListener("click",(event)=>{
+    event.target.remove();
+});
