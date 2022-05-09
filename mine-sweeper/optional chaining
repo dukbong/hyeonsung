@@ -1,0 +1,19 @@
+?. 을 이용해서 오류를 막는방법
+
+const a = {hello : [{b : "c"}]};
+console.log(a.hello[0].b);
+// 결과 : c
+
+const z = {hello : []};
+
+a.hello[0].b
+//이렇게 하면 에러가 나온다. 이럴때 사용할 수 있는 방법이다.
+
+a.hello[0]?.b
+//이러면 에러대신 undefined가 나온다.
+
+data[-1] // undefined
+
+data[-1][-1] // 이건 에러가 나온다. undefined[-1] 이기때문이다.
+
+data[-1]?.[-1] // 이건 에러가 안나오고 undefined가 나온다.
