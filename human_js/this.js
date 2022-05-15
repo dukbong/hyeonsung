@@ -121,7 +121,7 @@ inner() //javascript
 call stack으로 알아보기
 |ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 |console.log("this.name")               <--- 5
-|inner.call(obj) 함수 호출 / this = window      <--- 4 6
+|inner.call(obj) 함수 호출 /call 사용 this = obj5 <--- 4 6
 |console.log("this.name")               <--- 3
 |obj5.sayName5() 함수호출 / this = obj5 <--- 2 7
 |anonymous / this = window              <--- 1 8
