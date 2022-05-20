@@ -54,7 +54,7 @@
         >검색
         <input type="text" id="search" />
         <input type="submit" value="등록" id="make" />
-        <input type="reset" />
+        <button id = "resetBtn">초기화</button>
       </label>
     </form>
     <p></p>
@@ -65,6 +65,7 @@
         <td>입사일</td>
         <td>근속일수</td>
         <td>이메일</td>
+        <td>수정</td>
         <td>삭제</td>
       </tr>
     </table>
@@ -75,11 +76,20 @@
       const $email = document.querySelector("#email");
       const $make = document.querySelector("#make");
       const $table = document.querySelector("#table");
+      const $reset = document.querySelector("#resetBtn");
       let names;
       let department;
       let join;
       let email;
       let pack = [];
+
+        $reset.addEventListener("click",()=>{
+            for (let i = 0; i < $table.childNodes.length; i++){
+                if ($table.childNodes[i] === "tr"){
+                    $table.childNodes[i].remove();
+                }
+            }
+        });
       $names.addEventListener("input", function (event) {
         names = event.target.value;
       });
@@ -100,10 +110,12 @@
         pack.push("");
         pack.push(email);
         const $btn2 = document.createElement("button");
-        $btn2.textContent = "초기화";
+        $btn2.textContent = "삭제";
+        const $btn1 = document.createElement("button");
+        $btn1.textContent = "수정";
         for (let i = 0; i < 1; i++) {
           const $tr = document.createElement("tr");
-          for (let j = 0; j < 6; j++) {
+          for (let j = 0; j < 7; j++) {
             const $td = document.createElement("td");
             $td.textContent = pack[j];
             if (j === 3) {
@@ -119,7 +131,9 @@
               let btMs = endTime.getTime() - startTime.getTime();
               let btDay = btMs / (1000 * 60 * 60 * 24);
               $td.textContent = btDay;
-            } else if (j === 5) {
+            }else if(j === 5) {
+                $td.append($btn1);
+            }else if (j === 6) {
               $td.append($btn2);
             }
             $tr.appendChild($td);
