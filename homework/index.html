@@ -102,9 +102,11 @@
       $email.addEventListener("input", (event) => {
         email = event.target.value;
       });
+
       $make.addEventListener("click", (event) => {
         event.preventDefault(); //새로고침 방지
-        pack.push(names);
+        if ($names.value != false && $department.value != false && $join.value != false){
+          pack.push(names);
         pack.push(department);
         pack.push(join);
         pack.push("");
@@ -140,10 +142,31 @@
           }
           $table.appendChild($tr);
         }
+        $names.value = "";
+        $department.value = "";
+        $join.value = "2022-05-20";
+        $email.value = "";
         pack = [];
         $btn2.addEventListener("click", (event) => {
           event.target.parentElement.parentElement.remove();
         });
+        $btn1.addEventListener("click", (event)=>{
+          console.log(event.target.parentElement.parentElement.childNodes[1]);
+          for (let i = 0; i < 3; i++){
+            if (i === 0){
+              $names.value = event.target.parentElement.parentElement.childNodes[i].textContent;
+            }else if (i === 1){
+              $department.value = event.target.parentElement.parentElement.childNodes[i].textContent;
+            }else if (i === 2){
+              $join.value = event.target.parentElement.parentElement.childNodes[i].textContent;
+            }
+          }
+        });
+        }else {
+          alert("모두 입력해야합니다.");
+        }
+        
+
       });
     </script>
   </body>
