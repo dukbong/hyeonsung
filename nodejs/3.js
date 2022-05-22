@@ -1,11 +1,11 @@
-const value = require("./var");
-const checkNumber = require("./func");
+const value = require("./1");
+const checkNumber = require("./2");
 
 function checkStringOddOrEven(str) {
     if (str.length % 2){
-        return value.odd;
+        return value.홀수;
     } else {
-        return value.even;
+        return value.짝수;
     }
 }
 
