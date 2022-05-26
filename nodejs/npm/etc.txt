@@ -1,0 +1,10 @@
+기타 명령어
+    - npm outdated : 어떤 패키지에 기능 변화가 생겼는지 알 수 있다.
+    - npm uninstall 패키지명 : 패키지 삭제
+        -npm rm 패키지명으로도 가능하다.
+    - npm search 검색어 : npm 패키지를 검색할 수 있다.
+    - npm info 패키지명 : 패키지의 세부 정보 파악 가능
+    - npm adduser : npm에 로그인을 하기 위한 명령어
+    - npm whoami : 현재 사용자가 누구인지 확인가능
+    - npm logout : 로그인한 계정을 로그아웃
+    - npm version 버전 : package.json의 버점을 올린다.
