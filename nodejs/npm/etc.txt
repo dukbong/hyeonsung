@@ -8,3 +8,8 @@
     - npm whoami : 현재 사용자가 누구인지 확인가능
     - npm logout : 로그인한 계정을 로그아웃
     - npm version 버전 : package.json의 버점을 올린다.
+        - 버전의 종류
+            - Patch
+            - Minor
+            - Major
+                - 자세한 내용은 version_howtosee.txt 파일참고
