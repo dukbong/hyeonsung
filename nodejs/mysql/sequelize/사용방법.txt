@@ -1,0 +1,81 @@
+SQL문을 sequelize 쿼리로 바꿀수 있다.
+SQL : INSERT INTO nodejs.users(name,age,married,comment) VALUES("jang",30,0,"자기소개1");
+Sequelize : const {User} = require("../models/index");
+            User.create({
+                name : "jang",
+                age : 30,
+                married : false,
+                comment : "자기소개1",
+            });
+
+SQL : SELECT * FROM nodejs.users;
+Sequelize : User.findAll({});
+
+SQL : SELECT name,married FROM nodejs.users;
+Sequelize : User.findAll({
+               attributes : ["name", "married"],
+            });
+
+SQL : SELECT name,age FROM nodejs.users WHERE married = 1 AND age > 30;
+Sequelize : const {OP} = require("sequelize");
+            const {User} = require("../models/index");
+            User.findAll({
+                attributes:["name", "age"],
+                where : {
+                    married : true,
+                    age : {[OP.gt] : 30},
+                },
+            });
+
+SQL : SELECT id,name FROM nodejs.users WHERE married = 0 OR age > 30;
+sequelize : const {OP} = require("sequelize");
+            const {User} = require("../models/index);
+            User.findAll({
+                attributes:["id","name"],
+                where : {
+                    [OP.or]:[{married : false}, {age: {[OP.gt]:30}}],
+                },
+            });
+
+sequelize 조건 식 알아보기
+
+이것들은 OP 안에 들어가 있음.
+gt : >
+lt : <
+gte : >=
+lte : <=
+in [1,2,3] : 1,2,3 안에 있는지
+ne 10 : !=
+
+SQL : SELECT id,name FROM nodejs.users ORDER BY age DESC;
+Sequelize : User.findAll({
+                attributes:["id","name"],
+                order : [["age","DESC"]],
+            });
+
+SQL : SELECT id,name FROM nodejs.users ORDER BY age DESC LIMIT 1;
+Sequelize : User.findAll({
+                attributes:["id","name"],
+                order:[["age","DESC"]],
+                limit : 1,
+            });
+
+SQL : SELECT id,name FROM nodejs.users ORDER BY age DESC LIMIT 1 OFFSET 1;
+Sequelize : User.findAll({
+                attributes : ["id","name"],
+                order : [["age", "DESC"]],
+                limit : 1,
+                offset : 1,
+            });
+
+SQL : UPDATE nodejs.users SET comment = "바꿀내용" WHERE id = 2;
+Sequelize : User.update({
+                comment : "바꿀내용",
+            },{
+                where : {id : 2},
+            });
+
+SQL : DELETE FROM nodejs.users WHERE id = 2;
+Sequelize : User.destory({
+    where : {id : 2},
+});

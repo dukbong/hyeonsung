@@ -1,0 +1,7 @@
+데이터베이스에 있는 데이터를 수정하는 작업
+- UPDATE 데이터베이스.테이블명 SET 컬럼=바꿀내용 WHERE 조건
+- ★ WHERE가 없으면 테이블에 있는 모든 게 바뀌니 조심해야한다.
+
+- 예시
+- UPDATE nodejs.users SET comment = "바꿀 내용이지롱" WHERE id = 2;
+    - users 테이블에 id 2인 로우를 찾고 거기에 있는 comment 값을 바꾼다.

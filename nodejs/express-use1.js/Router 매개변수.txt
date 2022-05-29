@@ -1,0 +1,26 @@
+:id를 넣으면 req.params.id로 받을 수 있다.
+    - 동적으로 변하는 부분을 하루트 매개변수로 만든다.
+
+    router.get("/user/:id", (req,res)=>{
+        console.log(req.params, req.query);
+    });
+
+    - 일반 라우터보다 뒤에 위치해야 한다.
+
+    router.get("/user/:id", (req, res)=>{
+        console.log("이거는 실행이 됩니다.");
+    });
+
+    router.get("/user/like", (req,res)=>{
+        console.log("이거는 실행이 안됩니다.");
+    });
+
+    - /user/123?limit=5&skip=10 주소 요청인 경우
+        - 이것처럼 쿼리 스트링으로 들어오는 경우
+        
+    123은 req.params 로 할당되고
+    limit=5&skip=10은 req.query 로 할당된다.
+
+    결과 값 : {id : "123"} {limit : "5", skip : "10"}
+
+    

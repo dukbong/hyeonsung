@@ -1,0 +1,43 @@
+6. database에 테이블 생성하기
+    - CREATE TABLE 데이터베이스이름.테이블명
+        - 예시 1
+        - CREATE TABLE nodejs.comments(
+            - id INT NOT NULL AUTO_INCREMENT,
+            - commenter INT NOT NULL,
+            - comment VARCHAR(100) NOT NULL,
+            - created_at DATETIME NOT NULL DEFAULT now(),
+            // ↑ 위쪽은 컬럼을 지정 해준것이다.
+            - PRIMARY KEY(id),
+            - INDEX commenter_idx (commenter ASC),
+            // 자주 찾는 컬럼의 경우 INDEX 인덱스명을 걸어주면
+            //      - 인덱스명의 경우 겹치지 않으면 된다.
+            // 찾는 시간이 줄어들어 성능에 좋다.
+            // commenter ASC >> commenter 컬럼을 오름차순으로 인덱싱 하겠다.
+            - CONSTRAINT commenter
+            //★★★★★★★★★★★★★★★★
+            - FOREIGN KEY (commenter)
+            - REFERENCES nodejs.users (id)
+            // comments 테이블과 users 테이블이 관계가 있다.
+            // comments 테이블의 commenter 컬럼에는 users 테이블의 id 값이 들어간다.
+            //★★★★★★★★★★★★★★★★
+            - ON DELETE CASCADE
+            - ON UPDATE CASCADE)
+            // ↑ 위쪽은 컬럼의 옵션 
+            - COMMENT = "댓글"
+            - DEFAULT CHARSET = utf8mb4
+            - ENGINE=InnoDB;
+
+        - 예시 2
+        - CREATE TABLE nodejs.users(
+            - id INT NOT NULL AUTO_INCREMENT,
+            - name VARCHAR(20) NOT NULL,
+            - age INT UNSIGNED NOT NULL,
+            - married TINYINT NOT NULL,
+            - comment TEXT NULL,
+            - created_at DATETIME NOT NULL DEFAULT now(),
+            - PRIMARY KEY(id),
+            - UNIQUE INDEX name_UNIQUE (name ASC))
+            // name 컬럼이 고유해야한다는 옵션
+            - COMMENT = "사용자 정보"
+            - DEFAULT CHARACTER SET = utf8
+            - ENGINE =  InnoDB;

@@ -1,0 +1,19 @@
+라우터 그룹화 하는 방법
+
+- 주소는 같지만 메스드가 다른 코드가 있을때
+
+router.get("/abc",(req,res)=>{
+    res.send("GET /abc");
+});
+router.post("/abc",(req,res)=>{
+    res.send("POST /abc");
+});
+
+- router.router 로 그룹화하기
+
+router.router("/abc")
+    .get((req,res)=>{
+        res.send("GET /abc");
+    }).post((req,res)=>{
+        res.send("POST /abc");
+});

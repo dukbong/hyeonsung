@@ -1,0 +1,40 @@
+SELECT 컬럼 FROM 데이터베이스.테이블명;
+- SELECT * FROM nodejs.users;
+    - *은 전체 컬럼을 의미하고
+    - 원하는 컬럼만 읽고 싶다면 SELECT name,age,married FROM nodejs.users;
+
+
+WHERE를 이용해서 조건을 주어서 원하는 데이터를 볼수 있다.
+
+- 예시
+- SELECT * FROM nodejs.users WHERE married = 1 AND age > 30;
+    - users 테이블에서 married 컬럼이 1 이고 age 컬럼이 30보다 큰 데이터만 보겠다.
+    - AND는 둘다 참인 경우만 보여준다.
+
+- SELECT * FROM nodejs.users WHERE married = 1 OR age > 30;
+    - married가 1이거나 age가 30보다 큰 데이터를 보여준다.
+    - OR은 둘 중에 하나라도 참인 경우 보여준다.
+
+
+ORDER BY로 특정 컬럼을 정렬 할 수 있다.
+
+- 예시
+- SELECT * FROM node.js.users ORDER BY age DESC;
+    - age 컬럼의 값들을 내림차순하여 보여줘라.
+
+LIMIT 으로 조회할 개수를 제한 할 수 있다.
+
+- 예시
+- SELECT * FROM nodejs.users ORDER BY age DESC LIMIT 1;
+    1. users 테이블의 있는 데이터들을 age를 기준으로 내림차순한다.
+    2. 내림차순한 데이터 중 위에서 부터 1개만 보여줘라
+        - 만약 LIMIT 3이면 위에서 부터 3개를 보여준다.
+
+OFFSET을 하면 앞의 로우들을 스킵할 수 있다.
+
+- 예시
+- SELECT * FROM nodejs.users ORDER BY age DESC LIMIT 1 OFFSET 1;
+    1. users 테이블의 있는 데이터들을 age를 기준으로 내림차순한다.
+    2. OFFSET 1 가장 첫번째 로우를 스킵한다.
+        - OFFSET 3 이면 위에서부터 3번째 로우를 스킵한다.
+    3. LIMIT 1 가장 첫번째 로우를 보여준다.

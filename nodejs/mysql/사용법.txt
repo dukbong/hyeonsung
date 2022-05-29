@@ -1,0 +1,29 @@
+CMD에서 사용하는 방법
+
+1. Mysql server > bin 폴더의 경로로 이동
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+2. mysql -h localhost -u root -p
+    - 비밀번호 입력 하고 프롬프트가 mysql로 바뀌면 접속 성공
+
+3. 데이터베이스 만들기
+    - CREATE SCHEMA `nodejs` DEFAULT CHARACTER SET utf8;
+        - nodejs라는 테이블을 만든다.
+        - 문자 인코딩은 utf-8을 이용한다.
+    - MySQL에서는 SCHEMA랑 DATABASE랑 비슷한 개념인거 같다.
+4. DATABASE 보는 방법
+    - show databases;
+
+5. database 선택하는 방법
+    - use 데이터베이스 이름
+5-1 테이블 조회하기
+    - SHOW TABLES;
+    // 데이터 베이스가 가진 테이블명을 확인할 수 있다.
+    // 꼭 데이터베이스를 먼저 선택하고 해야한다.
+5-2 테이블 컬럼 확인하기
+    - DESC 테이블명;
+    // 꼭 데이터베이스를 먼저 선택하고 해야한다.
+5-3 테이블 삭제하기
+    - DROP TABLE 테이블명;
+    // 꼭 데이터베이스를 먼저 선택하고 해야한다.
+

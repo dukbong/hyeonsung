@@ -1,0 +1,13 @@
+INSERT INTO 데이터베이스.테이블 (컬럼명들) values (해당값)
+
+- 예시 1
+- INSERT INTO nodejs.users (name,age,married, comment) VALUES ("jang", 30, 0, "자기소개1");
+    - id, created_at 을 안적어도 되는 이유는
+    - id 의 경우 AUTO_INCREMENT 옵션으로 인해 자동으로 1씩 증가하고
+    - created_at 의 경우 DEFAULT 값이 now() 이기 때문이다.
+
+- 예시 2
+- INSERT INTO nodejs.comments(commenter, comment)VALUES(1,"안녕하세요. jang의 댓글입니다.");
+    - id, created_at 을 안적어도 되는 이유는
+    - id 의 경우 AUTO_INCREMENT 옵션으로 인해 자동으로 1씩 증가하고
+    - created_at 의 경우 DEFAULT 값이 now() 이기 때문이다.

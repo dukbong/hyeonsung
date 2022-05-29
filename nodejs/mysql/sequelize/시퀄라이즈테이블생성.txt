@@ -1,0 +1,7 @@
+models 폴더에서 작성 후 
+
+npx sequelize db:create를 하면 
+
+작성 된 코드 처럼 테이블이 생성된다.
+
+config 폴더에서 데이터베이스와 비밀번호도 입력해주어야한다.

@@ -1,0 +1,18 @@
+sequelize (시퀄라이즈)
+
+- sql 작업을 쉽게 할 수 있도록 도와주는 라이브러리
+    - 자바스크립트 문법으로 데이터 베이스 조작가능하다.
+    - maria, postgre, sqlite, mssql, mysql 등 과 호환이 가능하다.
+
+- 하지만 소규모에서만 사용이 가능하고 규모가 커지면 어짜피 sql을 사용해야한다.
+
+
+- npm sequelize 는 시퀄라이즈
+- npm sequelize-cli 는 시퀄라이즈에서 사용할 수 있는 명령어
+- sequelize와 sequelize-cli를 받았으면
+- 터미널에 npx sequelize init 을 해서 시퀄라이즈 구조를 생성할 수 있다.
+    - 4개의 폴더가 생긴다.
+        - config
+        - models
+        - migrations
+        - seeders

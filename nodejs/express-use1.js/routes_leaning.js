@@ -7,7 +7,13 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+const indexRouter = require("./routes/index");
+// index는 생략이 가능하다.
+// const indexRouter = require("./routes") 와 같다.
+const userRouter = require("./routes/user");
+
 const app5 = express();
+app5.set("port", process.env.PORT || 3000);
 
 app5.use(morgan("dev"));
 app5.use(express.json());
@@ -18,6 +24,10 @@ app5.use(session({
     saveUninitialized : false,
     cookie : {
         httpOnly : true,
+        secure : false,
     },
     name : "session_cookie",
 }));
+
+app5.use("/",indexRouter);
+app5.use("/user",userRouter);

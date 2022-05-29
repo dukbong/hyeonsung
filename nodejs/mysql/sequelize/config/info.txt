@@ -1,0 +1,12 @@
+config.json 파일에서 변경한 내용
+
+development : {
+    password : null,
+    database : "database_development"   
+}
+
+이 상태 였는데
+
+password : "wkdxoals1!",
+database : "nodejs"
+// database 이름은 mysql에서 만든 database 이름으로 바꿔줘야한다.
