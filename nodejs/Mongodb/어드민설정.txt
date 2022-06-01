@@ -1,0 +1,16 @@
+어드민 권한을 설정하여 디비에 비밀번호 걸기
+
+- mongo - >> cmd창 아님 <<
+ 
+> use admin
+switched to db admin
+> db.createUser({user : "이름", pwd : "비밀번호", roles:['root']});
+Successfully added user : { "user" : "이름", roles : ["root"]}
+
+설정이 끝났으면 
+cmd 창과 mongo를 종료 한 후 다시 둘다 실행한다.
+
+이때 cmd 명령창에는 mongod --auth 입력
+>> 로그인이 필요하다는 뜻이다.
+
+새로운 cmd 창을 열고 이번엔 mongo admin -u 이름 -p 비밀번호 입력하면 접속 성공

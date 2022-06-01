@@ -1,0 +1,53 @@
+CREATE
+
+1. MongoDB Compass로 만들기
+    > 직관적이라서 쉽다..
+
+2. mongo에서 만들기
+    > db.users.save({name:"zero", age:24, married:false, comment:"안녕하세요",createAt : new Date()});
+    > db.users.save({name:"nero", age:32, married:true, comment:"안녕~",createAt:new Date()});
+    > db.comments.save({commenter : ObjectId("~~~~~~~~"), comment : "zero가 작성한 댓글", createAt : new Date()});
+    - comments는 관계로 작성하기
+
+> db.users.find({name : "zero"}, {_id : 1});
+: {"_id" : ObjectId("~~~~~~~~~")}
+
+
+READ
+
+> db.users.find({});
+    - 해당 컬렉션에 있는 내용을 다 볼 수 있다.
+
+> db.users.find({}, {_id:0, name:1, married:1})
+    - 컬럼(필드) 조건이다.
+    - 1은 보여줘라 0 or 생략은 보여주지마라.
+    - 하지만 예외적으로 _id의 경우 보기 싫으면 0을 꼭해줘야한다.
+
+연산자로 조건을 만들 수 있다.
+> db.users.find({age : {$gt : 30}, married : true}, {_id : 0,name:1, age:1});
+> db.users.find({$or : [{age : {$gt : 30}},{married:false}]},{_id:0, name:1, age:1});
+
+정렬은 sort 메소드로 가능하다.
+> db.users.find({},{_id:0, name:1, age:1}).sort({age:-1})
+    - sort({컬럼: 조건})
+        - 조건 === 1 >> 오름차순
+        - 조건 === -1 >> 내림차순
+
+limit 메소드로 조회할 다큐먼트 개수 제한
+> db.users.find({},{_id:0,name:1,age:1}).sort({age:-1}).limit(1);
+    - 상위 1개만 보여달라
+
+skip 메소드로 건너뛸 다큐먼트 개수 제공
+> db.users.find({},{_id:0,name:1,age:1}).sort({age:-1}).limit(1).skip(1)
+    - 1개의 다큐먼트 건너뛰고 상위 1개만 보여달라
+
+UPDATE
+
+>db.users.update({name : "nero"},{$set : {comment : "안녕하세요. 수정한 내용입니다."}});
+    - 첫번째 {} 안에는 수정할 다큐먼트를 찾고
+    - 두번째 {} 안에는 수정할 컬럼 선택 후 내용 입력
+
+DELETE
+
+> db.users.remove({name : "nero"})
+    - db.테이블명.remove({다큐먼트 찾기});

@@ -1,0 +1,21 @@
+{
+  "name": "learn-mongoose",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon app"
+  },
+  "author": "jang",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5",
+    "morgan": "^1.10.0",
+    "nunjucks": "^3.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

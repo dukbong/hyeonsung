@@ -1,0 +1,11 @@
+1. cmd
+    - cd C:\Program Files\MongoDB\Server\5.0\bin
+    - mongod
+        - 계속 켜두어야한다.
+
+2. 폴더 C:\Program Files\MongoDB\Server\5.0\bin
+    - mongo Files 실행
+
+1번 완료 후 2번 실행하면 
+
+명령 프롬프트가 실행된다.
