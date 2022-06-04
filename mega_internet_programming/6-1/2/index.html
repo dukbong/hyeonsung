@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Mouse Over</h3>
+    <hr>
+    <img src = "../1/js.jpg" alt = "picture"
+    onmouseover="over(this)"
+    onmouseout = "out(this)">
+    <script>
+        function over(obj){
+            obj.src = "../1/aa.png";
+        }
+        function out(obj){
+            obj.src = "../1/js.jpg";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>1에서 부터 몇까지 더해서 3000을 넘을까?</h3>
+    <hr>
+    <script>
+        let i = 0;
+        let sum = 0;
+        while(true){
+            sum = sum + i;
+            if (sum > 3000){
+                break;
+            }
+            i++;
+        }
+        document.write(i,"까지 더하면 3000을 넘는다. : ",sum);
+    </script>
+</body>
+</html>

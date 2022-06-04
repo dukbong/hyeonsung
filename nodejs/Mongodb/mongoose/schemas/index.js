@@ -7,7 +7,8 @@ const connect = () => {
   mongoose.connect('mongodb://jang:nodejsbook@localhost:27017/admin', {
     dbName: 'nodejs',
     useNewUrlParser: true,
-    useCreateIndex: true,
+    // useCreateIndex: true,
+    // 몽구스 6버전에는 안써줘야 한다.
   }, (error) => {
     if (error) {
       console.log('몽고디비 연결 에러', error);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>eval, parseInt, isNaN</h3>
+    <hr>
+    <script>
+        function evalParseIntIsNaN(){
+            let res = eval("2*3 + 4*6");
+            document.write("eval(\"2*3 + 4*6\" = ",res,"<br>");
+            let m = parseInt("32");
+            document.write("parseInt(\"32\") = ", m, "<br>");
+            let n = parseInt("0x32");
+            document.write("parseInt(\"0x32\") = ",n,"<br>");
+            n = parseInt("hello");
+            if (isNaN(n)){
+                document.write("hello는 숫자가 아닙니다.");
+            }
+        }
+        evalParseIntIsNaN();
+    </script>
+</body>
+</html>
