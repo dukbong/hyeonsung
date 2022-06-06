@@ -13,11 +13,15 @@ const commentsRouter = require('./routes/comments');
 
 const app = express();
 app.set('port', process.env.PORT || 3001);
+
+//▼▼▼▼▼▼▼▼▼▼▼nunjucks▼▼▼▼▼▼▼▼▼▼▼
 app.set('view engine', 'html');
 nunjucks.configure('views', {
   express: app,
   watch: true,
 });
+//▲▲▲▲▲▲▲▲▲▲▲nunjucks▲▲▲▲▲▲▲▲▲▲▲
+
 //★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 sequelize.sync({force : false})
     .then(()=>{
@@ -27,6 +31,7 @@ sequelize.sync({force : false})
     });
 // sequelize 연결하기
 //★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
