@@ -8,6 +8,8 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const pageRouter = require("./routes/page");
+const authRouter = require("./routes/auth");
+const {sequelize} = require("./models/index");
 
 const app = express();
 
@@ -17,6 +19,20 @@ nunjucks.configure("views",{
     express : app,
     watch : true,
 });
+
+sequelize.sync({force : false})
+// sequelize 사용할 때 models에 정의한 테이블의 내용(컬럼)을 수정하면 같이 수정 안된다!★★★
+// force : true를 하면 수정시 테이블이 전체 삭제 됬다가 다시 생성된다.
+// ※ 주의 사항 >> 기존 데이터들도 같이 삭제된다...
+// alter : true를 사용하면 테이블의 컬럼을 수정해도 데이터는 남아있는다.
+// ※ 주의 사항 >> 기존은 allowNull : true 였지만 수정후 allowNull : false로 바뀌면
+//                 형식이 맞지 않기 때문에 오류가 발생한다.
+// 배포시에는 가장 안전한 alter : true를 사용한다.
+    .then(()=>{
+        console.log("데이터 베이스 연결 성공");
+    }).catch((err)=>{
+        console.error(err);
+    });
 
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname,"public")));
@@ -36,6 +52,7 @@ app.use(session({
 //21~35 이해 안되면 6장 참고
 
 app.use("/", pageRouter);
+app.use("/auth",authRouter);
 
 app.use((req,res,next)=>{
     const error = new Error(`${req.method} ${req.url} 라우터 없습니다.`);

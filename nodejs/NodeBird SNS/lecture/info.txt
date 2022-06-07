@@ -1,0 +1,5 @@
+로그인, 로그아웃, 회원가입을 위해 설치하는 npm list
+- passport
+- passport-local
+- passport-kakao
+- bcrypt (<- 해시화)
