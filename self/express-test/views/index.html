@@ -4,24 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>express + mysql</title>
+    <style>
+        #one-div, #new-form{
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        #red-button {
+            background-color: red;
+        }
+        span{
+            color : white;
+        }
+    </style>
 </head>
 <body>
-    <h3>사용자 등록</h3>
-    <hr>
-    <div>
+    <div id = "one-div">
         <form id = "user-form">
-            <div>이름 : <input type = "text" id = "username"></div>
-            <div>내용 : <input type = "text" id = "usercomment"></div>
-            <div><button type = "submit">SUBMIT</button></div>
+            <label>Name</label>
+            <input type="text" placeholder="Enter name please" id = "uname">
+            <label>Comment</label>
+            <input type = "text" placeholder="Enter Comment please" id = "ucomment">
+            <button type="submit" >SUBMIT</button>
         </form>
     </div>
     <hr>
-    <form id = "get-form">
-        <div>이름 : <input type = "text" id = "getusername"></div>
-        <div><button type = "submit">SUBMIT</button></div>
+   
+    <form id = "new-form">
+        <div>다른 사이트로 이동?</div>
+        <button type="submit" id ="red-button"><span>이동</span></button>
     </form>
+    <hr>
     <script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src = "main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

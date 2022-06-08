@@ -51,12 +51,12 @@ router.post("/login",(req, res, next)=>{
                 console.error(loginError);
                 return next(loginError);
             }
-            return res.redirect("/");
+            return res.redirect("/"); //세션 쿠기를 브라우저로 보내준다.
         });
     })(req, res, next);
 });
 
-router.get("/logout", isLoggedIn, (req,res)=>{
+router.get("/logout", (req,res)=>{
     req.logout();
     req.session.destroy();
     res.redirect("/");

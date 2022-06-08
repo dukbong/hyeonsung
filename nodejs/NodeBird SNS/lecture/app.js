@@ -5,6 +5,7 @@ const nunjucks = require("nunjucks");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const dotenv = require("dotenv");
+const passport = require("passport");
 
 dotenv.config();
 const pageRouter = require("./routes/page");
@@ -50,6 +51,9 @@ app.use(session({
     },
 }));
 //21~35 이해 안되면 6장 참고
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", pageRouter);
 app.use("/auth",authRouter);

@@ -8,9 +8,6 @@
   },
   "author": "jang",
   "license": "MIT",
-  "devDependencies": {
-    "nodemon": "^2.0.16"
-  },
   "dependencies": {
     "express": "^4.18.1",
     "morgan": "^1.10.0",
@@ -18,5 +15,8 @@
     "nunjucks": "^3.2.3",
     "sequelize": "^6.20.1",
     "sequelize-cli": "^6.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }

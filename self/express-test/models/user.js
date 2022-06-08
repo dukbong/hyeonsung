@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 
 module.exports = class User extends Sequelize.Model{
-    static init(sequelize){
+    static init (sequelize){
         return super.init({
             name : {
                 type : Sequelize.STRING(20),
@@ -11,6 +11,11 @@ module.exports = class User extends Sequelize.Model{
                 type : Sequelize.TEXT,
                 allowNull : false,
             },
+            created_at : {
+                type : Sequelize.DATE,
+                allowNull : false,
+                defaultValue : Sequelize.NOW,
+            },
         },{
             sequelize,
             timestamps : false,
@@ -19,7 +24,7 @@ module.exports = class User extends Sequelize.Model{
             modelName : "User",
             tableName : "test_sql",
             charset : "utf8",
-            collate : "utf8mb4_general_ci",
+            collate : "utf8_general_ci",
         });
     }
 };

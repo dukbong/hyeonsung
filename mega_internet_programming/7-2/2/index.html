@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>deposit & withdraw</h3>
+    <hr>
+    <script>
+        let account = {
+            name : "jang",
+            balance : 10000,
+            inquiry : function(){
+                return this.balance;
+            },
+            deposit : function(money){
+                return this.balance = this.balance + money;
+            },
+            withdraw : function(money){
+                if (this.balance >= money){
+                    return this.balance = this.balance - money
+                } else {
+                    return document.write("잔액이 부족합니다.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

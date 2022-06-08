@@ -25,6 +25,7 @@ module.exports = ()=>{
             }
             // 조건에 맞는 곳을 찾아간다음 done(?,?,?)에 도달하면
             // 다시 routes/auth 로 이동해서 마저 읽는다.
+            // ★done(에러(기본은 null), 객체, 성공여부)
         } catch(err){
             console.error(err);
             done(err);

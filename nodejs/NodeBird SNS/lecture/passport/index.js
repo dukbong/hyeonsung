@@ -5,7 +5,8 @@ const User = require("../models/user");
 
 module.exports = ()=>{
     passport.serializeUser((user, done)=>{
-        done(null, user.id);
+        done(null, user.id); // 세션에 user의 id만 저장
+        // ex) {id : 3, 'connect.sid' : @!#@!$!~~~}
     });
     // req.login(user)에서 이쪽으로 넘어온다.
     //7번 줄 실행되는데 serializeUser(user)에서 user는 routes/auth req.login(user)의 user다.
@@ -14,7 +15,7 @@ module.exports = ()=>{
 
     passport.deserializeUser((id, done)=>{
         User.findOne({where : {id}})
-            .then((user)=>done(null,user))
+            .then((user)=>done(null,user)) // req.user, req.isAuthenticated()로 접근 가능해진다.
             .catch((err)=>done(err));
     });
 
