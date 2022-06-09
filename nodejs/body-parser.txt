@@ -1,0 +1,6 @@
+app.use(express.json());
+>> 클라이언트에서 json 형식으로 보냈을때 파싱해서 req.body에 저장해준다.
+app.use(express.urlencoded({ extended : true }));
+>> 클라이언트에서 form을 보냈을때 파싱해준다.
+	- extended가 true면 qs, false면 querystring
+	- qs가 더 강력하기 때문에 true를 추천한다.

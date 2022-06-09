@@ -1,0 +1,7 @@
+app.use(morgan("dev"));
+>> 개발시에 많이 사용된다.
+	- 간단하게 method와 url, 응답시간, 바이트가 표시된다.
+
+app.use(morgan("combined"));
+>> 배포시 많이 사용된다.
+	- ip, 시간, method, url, 브라우저 등 자세히 표시된다.

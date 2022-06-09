@@ -16,6 +16,7 @@ module.exports = ()=>{
             if (exUser){
                 const result = await bcrypt.compare(password, exUser.password);
                 if(result){
+                    console.log("★★★★★★★★★★★★",exUser,"★★★★★★★★★★★★");
                     done(null, exUser);
                 }else{
                     done(null, false, {message : "비밀번호가 일치하지 않습니다."});
