@@ -51,6 +51,7 @@ router.post("/login", isNotLoggedIn, (req, res, next) => {
 
       // done(null,user.id)를 가지고 (loginError)=>{}부터 실행된다.
       // 현재 error 자리가 null이다.
+      // ★ req.login으로 인해 세션쿠키를 브라우저로 보낸다.
       if (loginError) {
         console.error(loginError);
         return next(loginError);

@@ -21,7 +21,7 @@ router.route("/")
             console.log(boxes);
             res.status(201).json(boxes);
         }catch(err){
-
+            next(err);
         }
     });
 

@@ -12,4 +12,8 @@ router.get("/",async (req, res ,next)=>{
     }
 });
 
+router.get("/join",(req, res)=>{
+    res.render("join");
+});
+
 module.exports = router;

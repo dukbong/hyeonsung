@@ -10,6 +10,7 @@ const {sequelize} = require("./models/index");
 dotenv.config();
 
 const indexRouter = require("./routes/index");
+const authRouter = require("./routes/auth");
 
 const app = express();
 app.set("port", process.env.PORT || 8001);
@@ -42,6 +43,7 @@ app.use(session({
 }));
 
 app.use("/", indexRouter);
+app.use("/auth", authRouter);
 
 app.use((req,res,next)=>{
     const error = new Error(`${req.method} ${req.url} This page is missing...`);
