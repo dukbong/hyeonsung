@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "selenium-webdriver": "^4.2.0"
+  }
+}

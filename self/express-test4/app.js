@@ -6,11 +6,13 @@ const cookParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const session = require("express-session");
 const {sequelize} = require("./models/index");
+const passport = require("passport");
 
 dotenv.config();
 
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
+const passportConfig = require("./passport/index");
 
 const app = express();
 app.set("port", process.env.PORT || 8001);
@@ -19,7 +21,7 @@ nunjucks.configure("views",{
     express : app,
     watch : true,
 });
-
+passportConfig();
 sequelize.sync({force : false})
     .then(()=>{
         console.log(`Database connection successful...!`);
@@ -41,6 +43,8 @@ app.use(session({
         secure : false,
     },
 }));
+app.use(passport.initialize());
+app.use(passport.session()); // 이게 있어야 passport의 deserializeUser 사용가능 
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);

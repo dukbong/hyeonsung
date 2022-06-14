@@ -16,4 +16,17 @@ router.get("/join",(req, res)=>{
     res.render("join");
 });
 
+router.get("/main", (req, res)=>{
+    try{
+        console.log("ㅂㅂㅂㅂ",req.user);
+        res.render("main",{
+            user : req.user,
+            title : "로그인 성공",
+        });
+    }catch(err){
+        console.error(err);
+        next(err);
+    }
+});
+
 module.exports = router;
