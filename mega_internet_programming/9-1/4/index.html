@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>this 활용</h3>
+    <hr>
+    <button onclick = "change(this,'30px','red')">button</button>
+    <button onclick = "change(this,'30px','blue')">button</button>
+    <div onclick= "change(this, '25px', 'orange')">
+        여기를 클릭하면 크기와 색을 변경
+    </div>
+    <script>
+        let change = (obj, size, color)=>{
+            obj.style.color = color;
+            obj.style.fontSize = size;
+        }
+    </script>
+</body>
+</html>
