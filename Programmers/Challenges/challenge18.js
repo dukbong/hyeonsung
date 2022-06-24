@@ -1,3 +1,4 @@
+//기능개발
 let progresses = [93, 30, 55, 50];
 // let progresses = [95, 90, 99, 99, 80, 99];
 let speeds = [1, 30, 5];

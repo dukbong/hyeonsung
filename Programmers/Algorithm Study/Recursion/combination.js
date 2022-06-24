@@ -1,6 +1,6 @@
 // 조합
-let arr = [1, 2, 3, 4, 5, 6];
-let num = 4;
+let arr = ["F","R","A","N","C","E"];
+let num = 2;
 
 let getCombination = (arr, num) => {
   const result = [];

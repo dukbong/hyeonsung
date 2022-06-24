@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인페이지</title>
+  </head>
+  <body>
+    <div>
+      <form action="/" method = "post">
+        <fieldset>
+          <legend>사용자 등록</legend>
+          <div><input id="username" type="text" placeholder="이름" name = "name"/></div>
+          <div><input id="age" type="number" placeholder="나이" name = "age" /></div>
+          <div>
+            <select name="married">
+                <option value="">결혼여부</option>
+                <option value="기혼">기혼</option>
+                <option value="미혼">미혼</option>
+              </select>
+          </div>
+          <div>
+            <input id = "comment" type = "text" placeholder="비고사항"  name = "comment"/>
+          </div>
+          <button type="submit">등록</button>
+        </fieldset>
+      </form>
+    </div>
+    <br>
+    <ul>
+
+    </ul>
+    <script src="index.js"></script>
+  </body>
+</html>
