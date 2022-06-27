@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 객체의 이벤트 리스터 프로퍼티 함수 등록</title>
+</head>
+<body onload = "init()">
+    <h3>Dom 객체의 이벤트 리스너 프로퍼티 함수 등록</h3>
+    <hr>
+    <p id = "p">마우스 올리면 orchid 색으로 변경</p>
+    <script>
+        let p;
+        function init(){
+            p = document.querySelector("#p");
+            p.onmouseover = over;
+            p.onmouseout = out;
+        }
+        function over(){
+            p.style.backgroundColor = "orchid";
+        }
+        function out(){
+            p.style.backgroundColor = "white";
+        }
+    </script>
+</body>
+</html>

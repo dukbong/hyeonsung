@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>익명 함수로 이벤트 리스너 작성</title>
+</head>
+<body onload="init()">
+    <h3>익명 함수로 이벤트 리스너 작성</h3>
+    <hr>
+    <p id = "p">마우스를 올리면 orchid 색으로 변경</p>
+    <script>
+        
+        let p;
+        function init(){
+            p = document.querySelector("#p");
+            p.onmouseover = function(){
+                this.style.backgroundColor = "orchid";
+            }
+            p.addEventListener("mouseout",function(e){
+                e.target.style.backgroundColor = "white";
+                //매변변수 없을때
+                //this.style.backgroundColor = "white";
+            });
+        }
+    </script>
+</body>
+</html>
