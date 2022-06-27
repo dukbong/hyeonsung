@@ -1,0 +1,12 @@
+비밀 노트
+
+회원가입시
+- 이메일
+- 비밀번호
+- 닉네임
+
+user sql  > id, email, password, nick
+    >> user.hasMany(comment,{foreignKey : commenter, sourceKey : id})
+comment sql > comments
+    >> comment.belongsTo(user,{foreignKey : commenter, targetKey : id})
+
