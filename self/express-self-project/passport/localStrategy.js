@@ -1,23 +1,19 @@
-// email과 password로 로그인 할때
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-
 const User = require("../models/user");
-const { beforeFind } = require("../models/user");
 
 module.exports = ()=>{
     passport.use(new LocalStrategy({
-        usernameField : "email",
-        passwordField : "password",
+        usernameField : "email", // req.body.email
+        passwordField : "password", // req.body.password
     }, async(email, password, done)=>{
+        console.log("usernameField", usernameField);
         try{
             const exUser = await User.findOne({where : {email}});
-            console.log("내가 궁금한 사항",{email});
             if (exUser){
                 const result = await bcrypt.compare(password, exUser.password);
                 if(result){
-                    console.log("★★★★★★★★★★★★",exUser,"★★★★★★★★★★★★");
                     done(null, exUser);
                 }else{
                     done(null, false, {message : "비밀번호가 일치하지 않습니다."});

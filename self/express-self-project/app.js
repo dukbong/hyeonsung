@@ -5,10 +5,12 @@ const nunjucks = require("nunjucks");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const {sequelize} = require("./models/index");
-
+const passport = require("passport");
+const indexRouter = require("./routes/index");
 dotenv.config();
 const app = express();
 app.set("port", process.env.PORT || 8005);
+
 app.set("view engine", "html");
 nunjucks.configure("views",{
     express : app,
@@ -35,6 +37,10 @@ app.use(session({
         secure : false,
     }
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/",indexRouter);
 
 app.use((req,res,next)=>{
     const err = new Error(`${req.method} ${req.url} 라우터 없습니다.`);
