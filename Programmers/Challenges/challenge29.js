@@ -1,5 +1,6 @@
 // 순위검색
 // 1트 >> 정확성 : 20 / 효율성 : 0
+// 2트 >> 정확성 : 100 / 효율성 : 0
 let info = [
   "java backend junior pizza 150",
   "python frontend senior chicken 210",
