@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>onbeforeprint와 onafterprint</title>
+    <style>
+      #logoDiv {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>onbeforeprint. onafterprint 이벤트 예시</h3>
+    <hr />
+    <div id="logoDiv"><img src="./aaa.jpg" alt="이미지파일" /></div>
+    <p>
+      안녕하세요. 브라우저 원도우에서는 보이지 않지만, 프린트시에는 로고가
+      보입니다. 마우스 오른쪽 버튼을 눌러 인쇄 미리보기 메뉴를 선택해보세요.
+    </p>
+    <script>
+      window.onbeforeprint = function (e) {
+        logoDiv = document.getElementById("logoDiv");
+        logoDiv.style.display = "block";
+      };
+      window.onafterprint = hideLogo;
+      function hideLogo() {
+        logoDiv = document.getElementById("logoDiv");
+        logoDiv.style.display = "none";
+        logoDiv.style.zIndex = -1;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval() 텍스트 회전</title>
+</head>
+<body>
+    <h3>텍스트가 자동 회전하며, 마우스로 클릭하면 중단합니다.</h3>
+    <hr>
+    <div><span id="span" style="background-color: yellow;">자동으로 회전하는 텍스트입니다.</span></div>
+    <script>
+        let span = document.getElementById("span");
+        let timerID = setInterval("doRotate()",200);
+        span.onclick = function(e){
+            clearInterval(timerID); // 타이머 해제, 문자열 회전 중단
+        }
+        function doRotate(){
+            let str = span.innerHTML;
+            let firstChar = str.substring(0,1);
+            let remains = str.substr(1, str.length-1);
+            str = remains + firstChar;
+            span.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

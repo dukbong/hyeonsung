@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우 닫기</title>
+</head>
+<body>
+    <h3>window.close()로 윈도우 닫기</h3>
+    <hr>
+    <a href="javascript:load('http://www.naver.com')">새 윈도우 열기(네이버)</a>
+    <br>
+    <a href="javascript:window.close()">현재 윈도우 닫기</a>
+    <br>
+    <a href="javascript:closeNewWindow()">새 윈도우 닫기</a>
+    <br>
+    <script>
+        let newWin = null;
+        function load(URL){
+            newWin = window.open(URL,"myWin","left=300,top=300,width=400,height=300");
+        }
+        function closeNewWindow(){
+            if(newWin == null || newWin.closed){
+                return;
+            }else{
+                newWin.close();
+            }
+        }
+    </script>
+</body>
+</html>
