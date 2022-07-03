@@ -76,19 +76,20 @@ console.log("foo3 : ",foo3); // foo3 : {}
 
 //=================================================
 
-// class Foo4{
-//     private readonly MAX_LEN:number = 5;
-//     private readonly MSG:string;
-//     constructor(){
-//         this.MSG = "hello";
-//     }
-//     log(){ // readonly가 선언된 프로퍼티는 재할당이 금지되어 있다.
-//         // this.MAX_LEN = 10;
-//         // this.MSG = "Hi";
-//     }
+class Foo4{
+    private readonly MAX_LEN:number = 5;
+    private readonly MSG:string;
+    constructor(){
+        this.MSG = "hello";
+    }
+    log(){ // readonly가 선언된 프로퍼티는 재할당이 금지되어 있다.
+        // this.MAX_LEN = 10;
+        // this.MSG = "Hi";
+        console.log(`MAX_LEN: ${this.MAX_LEN}`);
+        console.log(`MSG : ${this.MSG}`) // 
+    }
+}
 
-//     console.log(`MAX_LEN: ${this.MAX_LEN}`);
-//     console.log(`MSG : ${this.MSG}`) // 
-// }
-
-// new Foo4().log();
+new Foo4().log();
+// readonly가 선언된 클래스 프로퍼티는 선언시 내부에서만 값을 할당할 수 있다.
+// 그외의 경우에는 값을 할당할 수 없고 읽기만 가능하다. ex) 86,87번 줄 참고

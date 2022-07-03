@@ -52,9 +52,25 @@ console.log("bar2 : ", bar2); // {x : hello}
 // console.log(bar2.x); // x는 private 제한자이기 때문에 클래스 외부에서 참조 불가능
 //=================================================
 class Foo3 {
-    constructor(x) { 
+    constructor(x) {
         console.log(x);
     }
 }
 const foo3 = new Foo3("hello");
-console.log("foo3 : ", foo3);
+console.log("foo3 : ", foo3); // foo3 : {}
+//=================================================
+class Foo4 {
+    constructor() {
+        this.MAX_LEN = 5;
+        this.MSG = "hello";
+    }
+    log() {
+        // this.MAX_LEN = 10;
+        // this.MSG = "Hi";
+        console.log(`MAX_LEN: ${this.MAX_LEN}`);
+        console.log(`MSG : ${this.MSG}`); // 
+    }
+}
+new Foo4().log();
+// readonly가 선언된 클래스 프로퍼티는 선언시 내부에서만 값을 할당할 수 있다.
+// 그외의 경우에는 값을 할당할 수 없고 읽기만 가능하다. ex) 86,87번 줄 참고
