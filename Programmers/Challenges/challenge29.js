@@ -20,25 +20,24 @@ let query = [
 
 function solution(info, query) {
   let answer = [];
+  let last;
   info = info.map((v) => v.split(/\s/g));
   query = query.map((v) => v.replace(/-/g, "").split(/\s/g).filter((v) => v != "and"));
-
-  for (let i = 0; i < query.length; i++) {
-    let last = 0;
-    for (let j = 0; j < info.length; j++) {
-      let check = 0;
-      for (let k = 0; k < info[j].length; k++) {
-        if (k === info[j].length - 1) {
-          Number(info[j][k]) >= Number(query[i][k]) && last++;
-        } else {
-          if (!info[j][k].includes(query[i][k])) {
+  query.map((v)=>{
+    last = 0;
+    for (let i = 0; i < info.length; i++){
+      for (let j = 0; j < info[i].length; j++){
+        if (j === info[i].length-1){
+          Number(info[i][j]) >= Number(v[j]) && last++;
+        }else{
+          if(!info[i][j].includes(v[j])){
             break;
           }
         }
       }
     }
     answer.push(last);
-  }
+  });
   return answer;
 }
 console.log(solution(info, query));
