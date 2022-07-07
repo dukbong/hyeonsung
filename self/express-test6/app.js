@@ -5,7 +5,8 @@ const express       = require("express"),
       dotenv        = require("dotenv"),
       nunjucks      = require("nunjucks"),
       {sequelize}   = require("./models/index"),
-      app           = express();
+      app           = express(),
+      indexRouter   = require("./routes/index");
 
 dotenv.config();
 
@@ -37,6 +38,8 @@ app.use(session({
         secure   : true,
     },
 }));
+
+app.use("/",indexRouter);
 
 app.use((req, res, next) => {
     const err = new Error(`${req.method} ${req.url} No route was found here!`);

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      #cn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 35%;
+        color: chartreuse;
+      }
+      #ti {
+        color: chartreuse;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 35%;
+        font-weight: 800;
+      }
+      #tim {
+        font-size: 150px;
+      }
+      #btn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 60%;
+      }
+      #btn1,#btn2 {
+        position: relative;
+        padding: 15px 30px;
+        border-radius: 15px;
+        font-family: "paybooc-Light", sans-serif;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.25s;
+        margin : 20px;
+      }
+      #btn1:active {
+        transform: scale(1.5);
+      }
+      #btn2:active {
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cn">
+      <span id="rospan">It is now around 2 in the morning </span>
+    </div>
+    <div id="ti">
+      <span id="tim"></span>
+    </div>
+    <div id="btn">
+      <button id="btn1">로그인</button>
+      <button id="btn2" onClick="location.href='/join'">회원가입</button>
+    </div>
+    <script>
+      let span = document.getElementById("rospan");
+      let timerID = setInterval("doRotate()", 300);
+      function doRotate() {
+        let str = span.innerHTML;
+        let firstChar = str.substring(0, 1);
+        let remains = str.substr(1, str.length - 1);
+        str = remains + firstChar;
+        span.innerHTML = str;
+      }
+
+      let $tim = document.querySelector("#tim");
+      let mainTime = setInterval("time()", 500);
+      function time() {
+        let hour = new Date().getHours();
+        if (hour.toString().length < 2) {
+          hour = hour.toString();
+          hour = "0" + hour;
+        }
+        let min = new Date().getMinutes();
+        if (min.toString().length < 2) {
+          min = min.toString();
+          min = "0" + min;
+        }
+        $tim.textContent = `${hour} : ${min}`;
+      }
+    </script>
+  </body>
+</html>

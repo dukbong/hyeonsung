@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+        color: chartreuse;
+      }
+      input {
+        width: 500px;
+        height: 32px;
+        font-size: 15px;
+        border: 0;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+        background-color: rgb(233, 233, 233);
+      }
+      #divP{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top:15%;
+      }
+      #btn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%;
+      }
+      #btn1,#btn2 {
+        position: relative;
+        padding: 15px 30px;
+        border-radius: 15px;
+        font-family: "paybooc-Light", sans-serif;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.25s;
+        margin : 20px;
+      }
+      #btn1:active {
+        transform: scale(1.5);
+      }
+      #btn2:active {
+        transform: scale(1.5);
+      }
+       #h3{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50px;
+       }
+
+    </style>
+  </head>
+  <body>
+    <h3 id="h3">SIGN UP</h3>
+    <div id = "divP">
+      <div>
+        <input type="email" placeholder="* Write your email." />
+      </div>
+      <br />
+      <div>
+        <input type="email" placeholder="* Write your Phone number." />
+      </div>
+      <br />
+      <div>
+        <input type="text" placeholder="* Write your Address." />
+      </div>
+      <br />
+      <div>
+        <input type="text" placeholder="* Write your Nick name." />
+      </div>
+      <br />
+      <div>
+        <input type="text" placeholder="* Write your Programming language." />
+      </div>
+      <br />
+      <div>
+        <input type="text" placeholder="Briefly introduce yourself." />
+      </div>
+    </div>
+    <div id="btn">
+        <button type = "submit" id="btn1">Complete</button>
+        <button id="btn2" onClick="location.href='/'">Home</button>
+      </div>
+    <script>
+
+    </script>
+  </body>
+</html>

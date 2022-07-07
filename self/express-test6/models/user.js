@@ -30,12 +30,12 @@ module.exports = class User extends Sequelize.Model{
         },{
             sequelize,
             underscored : false,
-            timestamps : true,
-            paranoid : true,
-            modelName : "User",
-            tableName : "express6",
-            charset : "utf8",
-            collate : "utf8_general_ci",
+            timestamps  : true,
+            paranoid    : true,
+            modelName   : "User",
+            tableName   : "express6",
+            charset     : "utf8",
+            collate     : "utf8_general_ci",
         });
     }
 }
