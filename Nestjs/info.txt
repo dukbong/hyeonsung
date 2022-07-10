@@ -1,0 +1,37 @@
+Nest js 시작
+2022-07-11
+
+>>> nestjs 처음 설치할때는 ⭐npm i -g nestjs/cli
+>>> Nestjs 시작할때 해당 폴더에서 터미널에 ⭐nest new ./ 실행하면 된다.
+
+실행시 나오는 파일들이 무슨일을 하는지 알아보자.
+eslintrc.js
+    - 특정한 규칙을 가지고 코드를 깔끔하게 짤 수 있게 도와주는 라이브러리
+    - 타입스크립트를 쓰는 가이드 라인 제시
+    - 문법에 오류가 나면 알려주는 역할 등
+
+prettierrc
+    - 주로 코드 형식을 맞추는데 사용한다.
+    - 에러를 찾는것이 아닌 코드 포맷터 역할을 한다.
+    - 작은 따움표 쓸지 큰 따움표 쓸지 indent 값 2로 줄지 4로 줄지 등등..
+
+nest-cli.json
+    - nest 프로젝트를 위해 특정한 설정을 할 수 있는 json 파일
+
+================================================================
+
+board Controller 생성하기
+⭐ nest g controller boards --no-spec
+    - nest : using nestcli
+        - CLI로 명령어 입력시 Controller 만드는 순서
+            - cli는 먼저 boards 폴더 찾기
+            - boards 폴더 안에 controller 파일 생성
+            - boards 폴더 안에 module 파일 찾기
+            - module 파일 안에 controller 넣어주기
+    - g    : generate
+    - controller : controller schematic
+    - board : name of the schematic
+    - --no-spec : 테스트를 위한 소스 코드 생성x
+
+board service 생성하기
+⭐ nest g service boards --no-spec
