@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login PAGE</title>
+    <style>
+        label{
+            color :chartreuse;
+        }
+        #login-form{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 40%;
+        }
+    </style>
+  </head>
+  <body style="background-color: black;">
+    <form id="login-form" action="/login" method="post">
+        <div>
+            <input type="email" placeholder="Please write your email" name="email">
+        </div>
+        <div>
+            <input type="password" placeholder="Please write your password" name="password">
+        </div>
+        <button type="submit" style="width: 170px;">LOGIN</button>
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
+</html>
