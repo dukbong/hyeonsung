@@ -30,7 +30,7 @@ function addTodo(todo:Todo){ // 파라미터 todo의 타입을 Todo로 선언
 
 const newTodo: Todo = {id : 1, content : "typescript", completed : false};
 addTodo(newTodo);
-console.log(todos);
+console.log("내가 궁금한 부분",todos);
 
 //===========================================================
 

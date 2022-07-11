@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>arc Drawing</title>
+    </head>
+    <body>
+        <h3>arc Drawing</h3>
+        <hr>
+        <canvas id="myCanvas"width=200 h0eight="150" style="background-color: black;"></canvas>
+        <script>
+            let $myCanvas = document.querySelector("#myCanvas");
+            let context = $myCanvas.getContext("2d");
+
+            context.beginPath();
+            context.strokeStyle = "magenta";
+            context.arc(100, 70, 30, 0 , 1.5*Math.PI, false);
+            context.stroke();
+
+            context.beginPath();
+            context.strokeStyle="blue";
+            context.arc(100,70, 50, Math.PI/2, Math.PI, true);
+            // true면 반시계 방향
+            context.stroke();
+        </script>
+    </body>
+</html>

@@ -1,42 +1,43 @@
+"use strict";
 // 함수 선언식
 function multiply1(x, y) {
     return x * y;
 }
 // 함수표현식
-var multiply2 = function (x, y) { return x * y; };
+const multiply2 = (x, y) => x * y;
 console.log(multiply1(10, 2));
 console.log(multiply2(10, 3));
 //=========================================================
 // boolean
-var isDone = false;
+let isDone = false;
 // null
-var n = null;
+let n = null;
 // undefined
-var u = undefined;
+let u = undefined;
 // number
-var decimal = 6;
-var hex = 0xf00d; // 16진수
-var binary = 10;
-var octal = 484;
+let decimal = 6;
+let hex = 0xf00d; // 16진수
+let binary = 0b1010;
+let octal = 0o744;
 // string
-var color = "blue";
+let color = "blue";
 color = "red";
-var myName = "jang";
-var greeting = "hello, my name is ".concat(myName, ".");
+let myName = "jang";
+let greeting = `hello, my name is ${myName}.`;
 // object
-var obj = {};
+const obj = {};
 // array
-var list1 = [1, "two", true, {}];
-var list2 = [1, 2, 3];
-var list3 = [1, 2, 3]; // 제네릭 배열 타입
+let list1 = [1, "two", true, {}];
+let list2 = [1, 2, 3];
+let list3 = [1, 2, 3]; // 제네릭 배열 타입
 // tuple : 고정된 요소수 만큼의 타입을 미리 선언후 배열로 표현
-var tuple;
+let tuple;
 tuple = ["hello", 10];
 // tuple = [10,"hello"] // error
 // tuple = ["hello", 10, "jang", 4] // error
 // tuple.push(true); // error
 // any : 모든값을 수용한다.
-var notSure = 4;
+let notSure = 4;
 notSure = "hello~ typescript!";
 notSure = false;
 // void : 일반적으로 함수에서 반환값이 없을 경우 사용

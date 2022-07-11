@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 캔버스 그리기 맛보기</title>
+    </head>
+    <body>
+        <h3>canvas draw example</h3>
+        <hr>
+        <canvas id="myCanvas" style="background-color: green;"width="250" height="150"></canvas>
+        <script>
+            let $myCanvas = document.querySelector("#myCanvas");
+            let context = $myCanvas.getContext("2d");
+
+            context.beginPath();
+            context.strokeStyle = "blue";
+            context.rect(30,30,50,50);
+            context.stroke();
+            
+            context.beginPath();
+            context.fillStyle = "yellow";
+            context.rect(60,60,50,50);
+            context.fill();
+           
+            context.font = "20px Gothic";
+            context.fillStyle="red";
+            context.fillText("TEXT",100,50);
+        </script>
+    </body>
+</html>

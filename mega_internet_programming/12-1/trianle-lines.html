@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draw a triangle with a lines</title>
+    </head>
+    <body>
+        <h3>Draw a triangle with a lines😊</h3>
+        <hr>
+        <canvas id="myCanvas" style="background-color: aquamarine;"width="200" height="150"></canvas>
+        <script>
+            let $myCanvas = document.querySelector("#myCanvas");
+            let context = $myCanvas.getContext("2d");
+            
+            //삼각형 한 면씩 그리기
+            context.beginPath();
+            context.moveTo(120,20);
+            context.lineTo(20,50);
+            context.lineTo(150,120);
+            context.lineTo(120,20);
+            context.strokeStyle = "magenta";
+            context.stroke();
+        </script>
+    </body>
+</html>

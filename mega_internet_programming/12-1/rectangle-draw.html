@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draw a rectangle</title>
+    </head>
+    <body>
+        <h3>Draw a rectangle</h3>
+        <hr>
+        <canvas id="myCanvas" style="background-color: green;"width="200"height="150"></canvas>
+        <script>
+            let $myCanvas = document.querySelector("#myCanvas");
+            let context = $myCanvas.getContext("2d");
+
+            context.beginPath();
+            for (let i =0; i<5; i++){
+                context.rect(10+i*30, 10+i*10, 50, 50);
+            }
+            context.strokeStyle="magenta";
+            context.stroke();
+        </script>
+    </body>
+</html>
