@@ -1,0 +1,87 @@
+문자(char)
+    - ''
+문자열(string)
+    - ""
+    - char 형의 배열
+    - Null문자로 문자열의 끝을 표시함
+        - \0, 0으로 표기 가능
+        ex) "hello" -> 'h','e','l','l','o','\0'
+
+문자열의 저장
+    - char a[4] = {'a','b','c','\0'};
+    - char b[4] = "abc"; >> a와 동일하다.
+    - char c[4] = "abcdef" 🤯Error!
+
+    - char d[6] = "abc"; >> 'a','b','c','\0','\0','\0'
+    - char e[4] = ""; >> '\0','\0','\0','\0'
+    - char f[]  = "abc"; >> 초기화시 자동으로 크기가 지정
+        == char f[4] = 'a','b','c','\0'
+
+문자열의 출력
+    - printf("%s", str); >> %s 형식 지정자 사용
+    - printf(str); >> 문자배열 전달
+    ⭐ %s 형식 지정자 사용한 예제 
+    ex) char str1[4] = "YOU";
+        char str2[4] = {'a','r','e','\0'};
+        char str3[]  = "the best";
+        printf("%s %s %s\n",str1, str2, str3);
+        result >> YOU are the best
+    ⭐ 문자열의 복사
+    ex) char src[] = "hello", dst[20];
+        int i;
+        printf("원 본 = %s\n", src);
+        for (i = 0; src[i] != '\0'; i++){
+            dst[i] = src[i];
+        }
+        dst[i] = '\0';
+        printf("복사본 = %s\n", dst);
+    ⭐ 문자열 변경
+    ex) char arr[30] = "welcome";
+        strcpy(arr, "hello");
+        // 라이브러리 함수 strcpy()사용하면 쉽게 변경가능
+        printf("%s\n", arr);
+    // 라이브러리 함수 안사용했을때
+    ex) char arr[30] = "welcome";
+        arr[0] = 'h';
+        arr[1] = 'e';
+        arr[2] = 'l';
+        arr[3] = 'l';
+        arr[4] = 'o';
+        arr[5] = '\0';
+        printf("%s\n",arr);
+
+문자 입출력 라이브러리
+    - getchar(void)
+        - 키보드로부터 하나의 문자를 입력 받아서 반환
+        - <stdio.h>
+        - EOF(End Of File) 문자 사용
+            - 보통 -1로 정의된 상수
+        - 엔터키를 치면, 버퍼에 저장되었던 문자들이 프로그램으로 전달된다.
+    - putchar()
+        - 모니터로 하나의 문자를 출력
+        - <stdio.h>
+        - 엔터키를 치면, 버퍼에 저장되었던 문자들이 프로그램으로 전달된다.
+    ex) int ch;
+        while ((ch = getchar()) != EOF){
+            putchar(ch);
+        }
+
+    _getch()와 _putch()
+        - <conio.h>
+        - EOF(End Of File) 문자
+            - 입력의 끝을 나타내는 문자
+            - 보통 -1로 정의
+        - 버퍼를 사용하지 않고 에코가 없다
+
+    _getch()
+        - 사용자가 문자를 하나 입력하면
+          바로 프로그램으로 전달된다.
+        - 화면에 아무것도 나타내지 않는다.
+
+    ex) int main(void){
+            int ch;
+            while((ch = _getch()) != 'q'){
+                _putch(ch);
+            }
+            return 0;
+        }
