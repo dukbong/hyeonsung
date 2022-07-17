@@ -1,0 +1,45 @@
+문자 처리 라이브러리
+    - 문자들을 검사하는 함수
+        - 알파벳 / 숫자 / 대소문자 검사
+        - is...()로 시작한다.
+        - 검사 결과가 false면 0을 반환
+        - 검사 결과가 true면 0이 아닌 값을 반환
+    - 대문자를 소문자로 변환시는 함수 등
+    - <ctype.h>
+
+    - 문자 검사 라이브러리 종류 <stdio.h>
+        - isalpha(c) >> c가 영문자인지 (a-z, A-Z)
+        - isupper(c) >> c가 대문자인지
+        - islower(c) >> c가 소문자인지
+        - isdigit(c) >> c가 숫자인지
+        - isalnum(c) >> c가 영문자이거나 숫자인지 (a-z, A-Z, 0-9)
+        - isxdigit(c) >> c가 16진수 숫자인지
+        - isspace(c) >> c가 공백문자인지
+        - ispunct(c) >> c가 구두점 문자인지
+        - isprint(c) >> c가 출력 가능한 문자인지
+        - iscntrl(c) >> c가 제어 문자인지
+        - isascii(c) >> c가 아스키 코드인지
+    - 문자 변환 라이브러리
+        - toupper(c) >> c를 대문자로 변경
+        - tolower(c) >> c를 소문자로 변경
+        - toascii(c) >> c를 아스키 코드로 변경
+    
+    - 문자열 처리 라이브러리 종류 <string.h>
+        - strlen(s) >> 문자열 s의 길이 반환
+        - strcpy(s1, s2) >> s2를 s1에 복사
+            - s1의 길이가 s2의 길이보다 길거나 같아야한다.
+        - strcat(s1, s2) >> s2를 s1의 끝에 붙이기
+        - strcmp(s1, s2) >> s1과 s2를 비교
+            - 값이 같으면 0을 반환한다.
+            - 아스키코드 값으로 변환 후 문자열이 같은지 비교
+        - strncpy(s1, s2, n) >> s2의 최대 n개의 문자를 s1에 복사
+        - strncat(s1, s2, n) >> s2의 최대 n개의 문자를 s1의 끝에 붙이기
+        - strncmp(s1, s2, n) >> 최대 n개의 문자까지 s1과 s2를 비교
+        - strchr(s, c) >> 문자열 s안에서 문자 c찾기
+        - strstr(s1, s2) >> 문자열 s1에서 문자열 s2 찾기
+        - char *strtok(s, delimit) >> 문자열 s를 delimit를 이용하여 토큰으로 분리
+
+    - 문자열을 수치로 변환하는 전용함수 <stdilb.h>
+        - int atoi(const char *str) >> str을 int형으로 변환
+        - ling atoi(const char *str) >> str을 long형으로 변환
+        - double atof(const char *str) >> str을 double형으로 변환
