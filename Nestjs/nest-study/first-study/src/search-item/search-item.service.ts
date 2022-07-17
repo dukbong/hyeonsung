@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { ItemDto } from './dto/create-item.dto';
+import { UpdateItemDto } from './dto/update_item.dto';
 import { Item } from './entities/Item.entity';
 
 @Injectable()
@@ -31,4 +32,20 @@ export class SearchItemService {
         });
         return itemData;
     }
+
+    deleteOne(id: string){
+        this.getOne(id);
+        this.items = this.items.filter((v)=>v.id  !== parseInt(id));
+        return true;
+    }
+
+    update(id: string, updateData: UpdateItemDto){
+        const item = this.getOne(id);
+        this.deleteOne(id);
+        this.items.push({
+            ...item,
+            ...updateData,
+        });
+    }
+        
 }
