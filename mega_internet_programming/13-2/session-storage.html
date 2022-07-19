@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            세션 스토리지에 쓰기/읽기
+        </title>
+    </head>
+    <body>
+        <h3>세션 스토리지에 구입리스트 저장 / 검색</h3>
+        <hr>
+        품목명 : <input id="item" type="text">
+        개수 : <input id="count" type="text">
+        <button id="save" onclick="store()">저장</button>
+        <button id="retrieve" onclick="retrieve()">검색</button>
+        <script>
+            let $item = document.querySelector("#item");
+            let $count = document.querySelector("#count");
+
+            function store(){
+                if(!window.sessionStorage){
+                    alert("세션 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+                sessionStorage.setItem($item.value, $count.value);
+            }
+
+            function retrieve(){
+                if(!window.sessionStorage){
+                    alert("세션 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+                let val = sessionStorage.getItem($item.value);
+                if(val == null){
+                    alert(`${$item.value}는 구입 리스트에 없습니다.`);
+                }else{
+                    count.value = val;
+                }
+            }
+        </script>
+    </body>
+</html>

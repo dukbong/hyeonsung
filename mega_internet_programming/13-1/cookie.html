@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>방문 카운트 쿠키</title>
+  </head>
+  <script>
+    function GetCookie(name) {
+      let str = name + "=";
+      console.log("document.cookie", document.cookie);
+      let pairs = document.cookie.split(";");
+      for (let i = 0; i < pairs.length; i++) {
+        let pair = pairs[i].trim();
+        console.log("pair", pair);
+        let unit = pair.split("=");
+        if (unit[0] == name) {
+          return unescape(unit[1]);
+        }
+      }
+      return null;
+    }
+
+    function SetCookie(name, value, expireDate) {
+      let cookieStr =
+        name +
+        "=" +
+        escape(value) +
+        (expireDate == null ? "" : ";expires=" + expireDate.toGMTString());
+      document.cookie = cookieStr;
+    }
+  </script>
+  <body>
+    <script>
+      let username = GetCookie("username");
+      let count = GetCookie("count");
+      let expire = new Date();
+      if (username == null) {
+        count = 0;
+        username = prompt("이름을 입력해주세요.");
+        console.log("username if", username);
+        if ((username == null)) {
+          alert("이름을 입력하시면 보다 나은 서비스를 제공받을 수 있습니다.");
+          username = "아무개";
+        } else {
+          expire.setTime(expire.getTime() + 365 * 24 * 36000 * 1000);
+          console.log("username", username);
+          SetCookie("username", username, expire);
+        }
+      }
+      count++;
+      expire.setTime(expire.getTime() + 365 * 24 * 3600 * 1000);
+      SetCookie("count", count, expire);
+      document.write(
+        "<p>어서오세요." +
+          username +
+          "님의" +
+          count +
+          " 번째 방문을 환영합니다."
+      );
+    </script>
+  </body>
+</html>
