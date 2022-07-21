@@ -36,7 +36,9 @@
       
       let $item = document.querySelector("#item");
       let $count = document.querySelector("#count");
-
+      $count.addEventListener((e)=>{
+        e.e
+      })
       function store(){
         if(!window.localStorage){
             alert("로컬 스토리지를 지원하지 않습니다.");
