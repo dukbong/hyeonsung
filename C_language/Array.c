@@ -49,7 +49,7 @@ int main(void) {
 	printf("=====================================\n");
 
 	for (int i = 0; i < sizeof(score) / sizeof(score[1]); i++) {
-		printf("score[%2 d] = %3d \n", i, score[i]);
+		printf("score[%2d] = %3d \n", i, score[i]);
         // 내가 초기화한 인덱스까지만 출력된다.
 	}
 	return 0;
