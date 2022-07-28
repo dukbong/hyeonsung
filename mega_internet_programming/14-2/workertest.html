@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1~10까지 더하는 워크 데스크 만들기</title>
+    </head>
+    <body>
+        <h3>1~10까지 더하는 워크 데스크 만들기</h3>
+        <hr>
+        <div>1에서 10까지의 합은 <span id="sum"></span></div>
+        <script>
+            let addWorker = new Worker("add1to10.js");
+            addWorker.onmessage = function (e){
+                document.querySelector("#sum").innerHTML = e.data;
+            }
+        </script>
+    </body>
+</html>
