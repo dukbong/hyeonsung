@@ -1,3 +1,5 @@
+### [소스 코드 보기](https://github.com/dukbong/hyeonsung/blob/master/woowa/Problem_1.java)
+
 ### 문제
 포비와 크롱이 페이지 번호가 1부터 시작되는 400 페이지의 책을 주웠다.
 
@@ -28,5 +30,3 @@ pobi	crong	result
 [131, 132]	[211, 212]	1
 
 [99, 102]	[211, 212]	-1
-
-### (소스 코드 보기)[]
