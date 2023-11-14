@@ -1,4 +1,10 @@
-### 자주 쓰지만 자주 까먹는 것들
+### 내가 기억하려고 적는것
+
+#### Spring boot maven project pom.xml 1줄 오류
+
+<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+
+해당 코드를 properties에 추가해줘야한다.
 
 #### Java BackTracking을 이용한 조합과 순열
 
